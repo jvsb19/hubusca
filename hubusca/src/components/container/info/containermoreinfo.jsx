@@ -6,7 +6,7 @@ export const Info = styled.div`
     background-color: #423F3E;
     border-bottom: 10px solid #423F3E;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
 `;
 
 const ContainerInfo = props => (
