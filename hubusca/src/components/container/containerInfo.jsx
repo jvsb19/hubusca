@@ -5,8 +5,8 @@ export const Info = styled.div`
     height: 80vh;
     background-color: #423F3E;
     border-bottom: 10px solid #423F3E;
-    display: flex;
-    flex-direction: column;
+    display: block;
+    min-height:
 `;
 
 const ContainerInfo = props => (

@@ -1,6 +1,10 @@
+import React, {useState, useContext} from 'react';
+import Api from '../../services/Api';
+import {context} from '../context/context';
 import styled from 'styled-components';
 import {CgSearch} from 'react-icons/cg';
 import {FaHistory} from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const NavbarSection = styled.header`
     margin: 0px;
@@ -18,15 +22,14 @@ const NavbarTitle = styled.h1`
     font-size: 44px;
     font-weight: 500;
     width: 100%;
+    cursor: pointer;
 `;
-
 const NavbarInputDiv = styled.div`
     padding: 10px 16px;
     display: flex;
     align-items: center;
     justify-content: center;
 `;
-
 const NavbarInput = styled.input`
     width: 300px;
     height: 30px;
@@ -42,7 +45,6 @@ const NavbarInput = styled.input`
         transition: .4s ease;
     }
 `;
-
 const NavbarSearchBtn = styled.button`
     width: 30px;
     height: 30px;
@@ -79,19 +81,37 @@ const NavbarHistoricBtn = styled.button`
         cursor: pointer;
     }
 `;
-const Navbar = () => (
-    <NavbarSection>
-        <NavbarTitle>HUBusca</NavbarTitle>
-        <NavbarInputDiv>
-            <NavbarInput />
-            <NavbarSearchBtn>
-                <CgSearch size={18} />
-            </NavbarSearchBtn>
-            <NavbarHistoricBtn>
-                <FaHistory size={18} />
-            </NavbarHistoricBtn>
-        </NavbarInputDiv>
-    </NavbarSection>
-);
+const Navbar = () => {
+    const [user, setUser] = useState('');
+    const cont = useContext(context);
+    const history = useNavigate();
+    function handleOnClick(route){
+        return history(route);
+    }
+    async function getUserData(){
+        try {
+            const response = await Api.get(`/${user}`);
+            const repos = await Api.get(`/${user}/repos`);
+            cont.setUserContext(response.data);
+            cont.setRepos(repos.data);
+        } catch(erro){
+            console.log(erro);
+        }
+    }
+    return(
+        <NavbarSection>{console.log(cont)}
+            <NavbarTitle onClick={() => handleOnClick('/')}>HUBusca</NavbarTitle>
+            <NavbarInputDiv>
+                <NavbarInput value={user} onChange={e => setUser(e.target.value)} />
+                <NavbarSearchBtn onClick={getUserData}>
+                    <CgSearch size={18} />
+                </NavbarSearchBtn>
+                <NavbarHistoricBtn>
+                    <FaHistory size={18} />
+                </NavbarHistoricBtn>
+            </NavbarInputDiv>
+        </NavbarSection>
+    );
+};
 
 export default Navbar;

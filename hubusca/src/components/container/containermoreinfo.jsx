@@ -5,14 +5,17 @@ export const Info = styled.div`
     height: 80vh;
     background-color: #423F3E;
     border-bottom: 10px solid #423F3E;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template:
+        " photo repository " 50%
+        " moreInfo repository " 50%
+        / 50% 1fr 0%;
 `;
 
-const ContainerInfo = props => (
+const ContainerMoreInfo = props => (
     <Info>
         {props.children}
     </Info>
 );
 
-export default ContainerInfo;
+export default ContainerMoreInfo;

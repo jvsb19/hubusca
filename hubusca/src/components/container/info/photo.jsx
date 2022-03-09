@@ -3,17 +3,16 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 const ImgContainer = styled.div`
-    width: 100%;
-    height: 50%;
+    grid-area: photo;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    min-height: 40%;
 `;
-
 const Photo = styled.img`
-    width: 25%;
-    height: 60%;
+    margin: 40px 0px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     border: 10px solid black;
     transition: ease .4s;
@@ -24,7 +23,6 @@ const Photo = styled.img`
     }
 
 `;
-
 const UserPhoto = props => {
     const history = useNavigate();
     function handleOnClick(route){
@@ -32,7 +30,7 @@ const UserPhoto = props => {
     }
 
     return(
-        <ImgContainer onClick={() => handleOnClick('/more')}>
+        <ImgContainer onClick={() => handleOnClick('/moreInfo')}>
             <Photo src={props?.url} alt={props.alternativeText}></Photo>
         </ImgContainer>
     );
