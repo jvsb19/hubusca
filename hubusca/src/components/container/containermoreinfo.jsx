@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const Info = styled.div`
+    margin-top: 50px;
     width: 85%;
     height: 80vh;
-    background-color: #423F3E;
-    border-bottom: 10px solid #423F3E;
+    border-radius: 12px;
+    background-color: #ddd;
     display: grid;
     grid-template:
         " photo repository " 50%

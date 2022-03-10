@@ -14,12 +14,13 @@ const Photo = styled.img`
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: 10px solid black;
+    border: 10px solid #6D8299;
     transition: ease .4s;
     &:hover{
         transform: scale(1.05);
         transition: ease .4s;
         cursor: pointer;
+        border: 10px solid #6d9984;
     }
 
 `;
@@ -28,7 +29,6 @@ const UserPhoto = props => {
     function handleOnClick(route){
         return history(route);
     }
-
     return(
         <ImgContainer onClick={() => handleOnClick('/moreInfo')}>
             <Photo src={props?.url} alt={props.alternativeText}></Photo>

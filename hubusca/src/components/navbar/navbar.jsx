@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const NavbarSection = styled.header`
     margin: 0px;
     width: 100%;
-    height: 10vh;
+    min-height: 10vh;
     background: #2C2E43;
     display: flex;
     justify-content: space-between;
@@ -21,7 +21,6 @@ const NavbarTitle = styled.h1`
     color: #E5E5E5;
     font-size: 44px;
     font-weight: 500;
-    width: 100%;
     cursor: pointer;
 `;
 const NavbarInputDiv = styled.div`
@@ -81,8 +80,10 @@ const NavbarHistoricBtn = styled.button`
         cursor: pointer;
     }
 `;
+
+export const recentData = [];
 const Navbar = () => {
-    const [user, setUser] = useState('');
+    const [user, setUser] = useState([]);
     const cont = useContext(context);
     const history = useNavigate();
     function handleOnClick(route){
@@ -94,19 +95,21 @@ const Navbar = () => {
             const repos = await Api.get(`/${user}/repos`);
             cont.setUserContext(response.data);
             cont.setRepos(repos.data);
+            recentData.unshift(response.data);
         } catch(erro){
             console.log(erro);
         }
+        handleOnClick('/');
     }
     return(
-        <NavbarSection>{console.log(cont)}
+        <NavbarSection>
             <NavbarTitle onClick={() => handleOnClick('/')}>HUBusca</NavbarTitle>
             <NavbarInputDiv>
                 <NavbarInput value={user} onChange={e => setUser(e.target.value)} />
                 <NavbarSearchBtn onClick={getUserData}>
                     <CgSearch size={18} />
                 </NavbarSearchBtn>
-                <NavbarHistoricBtn>
+                <NavbarHistoricBtn onClick={() => handleOnClick('/historic')}>
                     <FaHistory size={18} />
                 </NavbarHistoricBtn>
             </NavbarInputDiv>

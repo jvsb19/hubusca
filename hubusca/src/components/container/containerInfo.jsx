@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const Info = styled.div`
-    width: 85%;
+    margin-top: 50px;
+    width: 50%;
     height: 80vh;
-    background-color: #423F3E;
-    border-bottom: 10px solid #423F3E;
-    display: block;
-    min-height:
+    border-radius: 12px;
+    background-color: #ddd;
 `;
 
 const ContainerInfo = props => (
