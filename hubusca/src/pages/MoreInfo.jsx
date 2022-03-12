@@ -3,9 +3,9 @@ import { context } from '../components/context/context';
 import Navbar from '../components/navbar/navbar';
 import Container from '../components/container/container';
 import ContainerMoreInfo from '../components/container/containermoreinfo';
-import Photo from '../components/container/info/photo';
-import UserMoreInfo from '../components/container/info/moredetails';
-import RepositoryContainer from '../components/container/info/repository';
+import Photo from '../components/info/photo';
+import UserMoreInfo from '../components/info/moredetails';
+import RepositoryContainer from '../components/info/repository';
 import { Navigate } from 'react-router-dom';
 
 const MoreInfo = props => {

@@ -9,7 +9,7 @@ export const ContextProvider = props => {
             userContext,
             setUserContext,
             repos,
-            setRepos
+            setRepos,
         }}>
             {props.children}
         </context.Provider>

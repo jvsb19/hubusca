@@ -14,6 +14,9 @@ const NavbarSection = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media only screen and (max-width:682px){
+        justify-content: space-around;
+    }
 `;
 const NavbarTitle = styled.h1`
     margin: 0px;
@@ -22,6 +25,14 @@ const NavbarTitle = styled.h1`
     font-size: 44px;
     font-weight: 500;
     cursor: pointer;
+    @media only screen and (max-width:682px){
+        font-size 30px;
+        margin-left: 0px;
+    }
+    @media only screen and (max-width:475px){
+        font-size 22px;
+        margin-left: 10px;
+    }
 `;
 const NavbarInputDiv = styled.div`
     padding: 10px 16px;
@@ -43,6 +54,19 @@ const NavbarInput = styled.input`
         width: 350px;
         transition: .4s ease;
     }
+    @media only screen and (max-width:682px){
+        width: 120px;
+        margin-right: 20px;
+        &:focus {
+            width: 150px;
+        }
+    }
+    @media only screen and (max-width:475px){
+        width: 60px;
+        &:focus {
+            width: 70px;
+        }
+    }
 `;
 const NavbarSearchBtn = styled.button`
     width: 30px;
@@ -61,6 +85,9 @@ const NavbarSearchBtn = styled.button`
         transition: ease .4s;
         cursor: pointer;
     }
+    @media only screen and (max-width:682px){
+        margin-left 0px;
+    }
 `;
 const NavbarHistoricBtn = styled.button`
     width: 30px;
@@ -78,6 +105,9 @@ const NavbarHistoricBtn = styled.button`
         transform: scale(1.3);
         transition: ease .4s;
         cursor: pointer;
+    }
+    @media only screen and (max-width:475px){
+        margin-left: 4px;
     }
 `;
 

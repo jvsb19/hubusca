@@ -6,6 +6,9 @@ export const Info = styled.div`
     height: 80vh;
     border-radius: 12px;
     background-color: #ddd;
+    @media only screen and (max-width:475px){
+        width: 85%;
+    }
 `;
 
 const ContainerInfo = props => (

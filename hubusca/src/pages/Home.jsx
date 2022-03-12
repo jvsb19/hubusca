@@ -1,12 +1,10 @@
 import React, {useContext} from 'react';
-import {useNavigate} from 'react-router-dom';
 import { context } from '../components/context/context';
 import Navbar from '../components/navbar/navbar';
 import Container from '../components/container/container';
 import ContainerInfo from '../components/container/containerInfo';
-import ContainerMoreInfo from '../components/container/containermoreinfo';
-import Photo from '../components/container/info/photo';
-import UserInfo from '../components/container/info/details';
+import Photo from '../components/info/photo';
+import UserInfo from '../components/info/details';
 
 function Home(){
     const cont = useContext(context);
